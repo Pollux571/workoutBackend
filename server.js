@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose");
 const workoutRoutes = require("./routes/workouts");
 
 const app = express();
@@ -16,6 +17,16 @@ app.use((req, res, next) => {
 // routes
 app.use("/api/workouts", workoutRoutes);
 
-app.listen(process.env.PORT, (req, res) => {
-  console.log("u re server started");
-});
+// ! Connect
+mongoose.set("strictQuery", false); // hata almamak icin deprecatlerde
+mongoose
+  .connect(process.env.MONGODB_URL)
+  .then(() => {
+    app.listen(process.env.PORT, (req, res) => {
+      console.log("u re server started");
+    });
+    console.log("connected");
+  })
+  .catch((error) => {
+    console.log(error);
+  });

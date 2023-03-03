@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  res.json({mssg:"single work oout"});
+  res.json({mssg:"single workout id"});
 });
 
 router.post("/", (req, res) => {
@@ -23,3 +23,5 @@ router.patch("/:id", (req, res) => {
 });
 
 module.exports = router;
+
+// password aExHDQNFscjOnpq5
