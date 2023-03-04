@@ -37,6 +37,9 @@ module.exports = {
 const { createWorkout } = require("../controllers/workoutController");
 
 // 4 adim eger biz olmayan id get metodu yaptigimizda hata veriyorudu onu gidermek icinde object.types yazdik tabi once mongoose require yapiyoruz
+
+https://stackoverflow.com/questions/13850819/can-i-determine-if-a-string-is-a-mongodb-objectid
+https://snyk.io/advisor/npm-package/mongodb/functions/mongodb.ObjectID.isValid
 if (!mongoose.Types.ObjectId.isValid(id)) {
   return res.status(404).json({ error: "no such workout" });
 }
